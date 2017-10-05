@@ -1,6 +1,5 @@
 package Utilities;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class ServerVerifier
      *
      * @return none
      */
-    public static boolean validateArguments(String[] args) throws ServerConfigurationException
+    public static void validateArguments(String[] args) throws ServerConfigurationException
     {
         // Check how many arguments were passed in
         if(args.length == 0)
@@ -38,6 +37,7 @@ public class ServerVerifier
             System.exit(0);
         }
 
+        // Iterate through each commandline argument and check for validity
         int argumentNum = 0;
         for(String input: args)
         {
@@ -45,16 +45,13 @@ public class ServerVerifier
             switch (currentArgument)
             {
                 case PortNumber:
-                    return validatePortNumber(input);
+                    validatePortNumber(input);
                 case SomethingElse:
                     break;
-                default:
-                    return false;
             }
+            argumentNum++;
         }
 
-        // Should never reach this point
-        return false;
     }
 
     /**
@@ -64,12 +61,11 @@ public class ServerVerifier
      *
      * @return boolean indicating that portNumber is a String version of a positive integer
      */
-    public static boolean validatePortNumber(String portNumber) throws ServerConfigurationException
+    public static void validatePortNumber(String portNumber) throws ServerConfigurationException
     {
-        if (portNumber.matches("[0-9]+"))
+        if (!portNumber.matches("[0-9]+"))
         {
-            return true;
+            throw new ServerConfigurationException("\""+portNumber+"\""+" isn't a valid Port Number");
         }
-        throw new ServerConfigurationException("\""+portNumber+"\""+" isn't a valid Port Number");
     }
 }
