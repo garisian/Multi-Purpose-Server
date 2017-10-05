@@ -19,7 +19,7 @@ import static java.lang.Thread.sleep;
 public class ServerRunnerTest extends TestCase
 {
     // Port which will be used for all testcases
-    private int portNumber = 24;
+    private int portNumber = 23;
     private ServerRunner testServer;
 
     public void setUp() throws Exception
@@ -44,33 +44,32 @@ public class ServerRunnerTest extends TestCase
 
     public void tearDown() throws Exception
     {
-        testServer.killServer();
+       // testServer.killServer();
     }
 
     /**
      * Description: Write single byte to server and see if it returns proper response
      */
-    public void testAcceptSingleByte() throws Exception
+    public void test_SendName_GetHelloName() throws Exception
     {
-        Socket socket = null;
-        try {
-            // Create socket and set up listening and writing streams
-            socket = new Socket("localhost", portNumber);
+        final String host = "localhost";
+        final int portNumber = 33;
+        System.out.println("Creating socket to '" + host + "' on port " + portNumber);
+
+            Socket socket = new Socket(host, portNumber);
             BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-            // Send a single char and wait for response
-            out.println("a");
-            System.out.println("Wrote a");
-            System.out.println("Server respone: \"" + br.readLine()+"\"");
+            System.out.println("server says:" + br.readLine());
 
-        } catch (Exception e) {
-            System.err.print(e);
-            throw new Exception(e);
-        } finally
-        {
+            String userInput = "garisian";
+            out.println(userInput);
+
+            System.out.println("server says:" + br.readLine());
+
+
             socket.close();
-        }
+
     }
 
 }

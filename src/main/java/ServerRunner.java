@@ -1,10 +1,7 @@
 import Utilities.ServerConfigurationException;
 import Utilities.ServerVerifier;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -19,11 +16,9 @@ import java.net.Socket;
  */
 public class ServerRunner
 {
-    // Variables required to run the server
-    private int portNumber;
     private ServerSocket serverSocket;
-    private Socket clientSocket;
-    private boolean isAlive = true;
+    private boolean keepAlive = true;
+    private int portNumber;
 
     /**
      * Description: Constructor to initialize server configurations
@@ -35,7 +30,10 @@ public class ServerRunner
     public ServerRunner(int portNumber) throws IOException
     {
         this.portNumber = portNumber;
-        createSockets();
+        serverSocket = new ServerSocket(portNumber);
+        System.out.println("Creating server socket on port \"" + portNumber+"\"");
+        System.out.println("Starting Server...");
+        startServer();
     }
 
     /**
@@ -48,52 +46,30 @@ public class ServerRunner
     public void killServer()
     {
         System.out.println("Stopping Server...");
-        isAlive = false;
+        keepAlive = false;
     }
 
-    /**
-     * Description: Create a ServerSocket listening to the portNumber and listen to clients
-     *
-     * @param: none
-     *
-     * @return none
-     */
-    public void createSockets() throws IOException
+    private void startServer() throws IOException
     {
-        // Create socket and accept a connection from the client
-        this.serverSocket = new ServerSocket(portNumber);
-        this.clientSocket = serverSocket.accept();
-        System.out.println("Starting Server...");
-    }
+        while (keepAlive) {
+            Socket socket = serverSocket.accept();
+            OutputStream os = socket.getOutputStream();
+            PrintWriter pw = new PrintWriter(os, true);
+            pw.println("What's you name?");
 
-    /**
-     * Description: Attempt communication with the client
-     *
-     * @param: none
-     *
-     * @return none
-     */
-    public void communicate() throws IOException
-    {
-        // Attempt communicates with the client
-        try (
-                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))
-        )
-        {
-            // Keep writing what was written to server back out until "Bye" is written
-            String inputLine, outputLine;
-            while (isAlive && (inputLine = in.readLine()) != null)
-            {
-                out.println("\""+inputLine+"\" was written");
-                System.out.println("Server received: "+inputLine);
-                if (inputLine.equals("Bye"))
-                    break;
-            }
+            BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String str = br.readLine();
+
+            pw.println("Hello, " + str);
+            pw.close();
+            socket.close();
+
+            System.out.println("Just said hello to:" + str);
         }
+        serverSocket.close();
     }
 
-    public static void main(String[] args)
+    public static void main(String args[]) throws IOException
     {
         // Check if user-arguments are valid
         try
@@ -108,8 +84,5 @@ public class ServerRunner
             System.err.println(error);
             System.exit(0);
         }
-
     }
-
-
 }
