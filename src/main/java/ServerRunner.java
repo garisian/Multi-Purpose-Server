@@ -1,5 +1,7 @@
+import Utilities.GenerateResponse;
 import Utilities.ServerConfigurationException;
 import Utilities.ServerVerifier;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -14,11 +16,15 @@ import java.net.Socket;
  *
  * Created on 2017-10-03
  */
-public class ServerRunner
+public class ServerRunner extends Thread
 {
+    // Variables used during message transfer
+    private GenerateResponse serverResponse = new GenerateResponse();
     private ServerSocket serverSocket;
+    Socket socket;
     private boolean keepAlive = true;
     private int portNumber;
+    PrintWriter pw;
 
     /**
      * Description: Constructor to initialize server configurations
@@ -27,13 +33,42 @@ public class ServerRunner
      *
      * @return none
      */
-    public ServerRunner(int portNumber) throws IOException
+    public ServerRunner(int portNumber, Socket socket) throws IOException
     {
+        super("SingleServerThread");
         this.portNumber = portNumber;
-        serverSocket = new ServerSocket(portNumber);
-        System.out.println("Creating server socket on port \"" + portNumber+"\"");
-        System.out.println("Starting Server...");
-        startServer();
+        //serverSocket = new ServerSocket(portNumber);
+        this.socket = socket;
+        //System.out.println("Creating server socket on port \"" + portNumber+"\"");
+    }
+
+    /**
+     * Description: Initiates the thread
+     *
+     * @param: none
+     *
+     * @return none
+     */
+    public void run()
+    {
+        try
+        {
+            startServer();
+        }
+        catch (IOException e)
+        {
+            try
+            {
+                serverSocket.close();
+                pw.close();
+                socket.close();
+            }
+            catch(IOException ee)
+            {
+                // Everything's alerady closed
+            }
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -49,24 +84,34 @@ public class ServerRunner
         keepAlive = false;
     }
 
+
+    /**
+     * Description: Receive messages and send the appropriate response
+     *
+     * @param: none
+     *
+     * @return none
+     */
     private void startServer() throws IOException
     {
         while (keepAlive) {
-            Socket socket = serverSocket.accept();
+            //socket = serverSocket.accept();
             OutputStream os = socket.getOutputStream();
-            PrintWriter pw = new PrintWriter(os, true);
-            pw.println("What's you name?");
+            pw = new PrintWriter(os, true);
+            //pw.println("What's you name?");
 
             BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String str = br.readLine();
 
-            pw.println("Hello, " + str);
-            pw.close();
-            socket.close();
+            String response = serverResponse.generate(str);
 
-            System.out.println("Just said hello to:" + str);
+            pw.println(response);
+            System.out.println("SERVER --- Sent Response: \"" + response+"\"");
         }
         serverSocket.close();
+        pw.close();
+        socket.close();
+
     }
 
     public static void main(String args[]) throws IOException
@@ -76,10 +121,19 @@ public class ServerRunner
         {
             // If an error occurs during validaton a ServerConfigurationException will be thrown
             ServerVerifier.validateArguments(args);
-            ServerRunner server = new ServerRunner(Integer.parseInt(args[0]));
+
+            // Create a new thread for every incoming connection
+            try (ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]))) {
+                while (true) {
+                    new ServerRunner(Integer.parseInt(args[0]),serverSocket.accept()).start();
+                }
+            } catch (IOException e) {
+                System.err.println("Could not listen on port " + Integer.parseInt(args[0]));
+                System.exit(-1);
+            }
 
         }
-        catch(ServerConfigurationException | IOException error)
+        catch(ServerConfigurationException error)
         {
             System.err.println(error);
             System.exit(0);
