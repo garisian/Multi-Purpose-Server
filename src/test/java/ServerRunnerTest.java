@@ -26,34 +26,40 @@ public class ServerRunnerTest extends TestCase
     // Port which will be used for all testcases
     private int portNumber = 29;
     private ServerRunner testServer;
+    private boolean setupDone = false;
 
     public void setUp() throws Exception
     {
         super.setUp();
+        if(setupDone)
+        {
+            return;
+        }
         Thread thread = new Thread(){
             public void run(){
-                try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
+                try (ServerSocket serverSocket = new ServerSocket(portNumber);) {
                     while (true) {
                         new ServerRunner(portNumber,serverSocket.accept()).start();
                         //new KKMultiServerThread(serverSocket.accept()).start();
                     }
                 }
-
                 catch(Exception e)
                 {
                     System.err.println(e);
-                    System.out.println("Server Crashed");
+                    System.out.println("Server Crashed in Testcase Setup");
                     System.out.println(e);
                 }
             }
         };
 
         thread.start();
+        setupDone = false;
     }
 
     public void tearDown() throws Exception
     {
-       //testServer.killServer();
+        //sleep(4000);
+        //new ServerRunner(portNumber,new Socket()).killServer();
     }
 
     /**
@@ -92,12 +98,18 @@ public class ServerRunnerTest extends TestCase
         listOfSockets.add(socketChild2);
         listOfSockets.add(socketChild3);
 
-
-        new MultipleClientTester(socketChild1,"basic: aaaa").start();
-        new MultipleClientTester(socketChild2,"basic: bbb").start();
-        new MultipleClientTester(socketChild3,"basic: ccc").start();
-        new MultipleClientTester(socketChild4,"basic: ddd").start();
-        new MultipleClientTester(socketChild5,"basic: eee").start();
+        try
+        {
+            new MultipleClientTester(socketChild1,"basic: aaaa", "Hello, aaaa").start();
+            new MultipleClientTester(socketChild2,"basic: bbb", "Hello, bbb").start();
+            new MultipleClientTester(socketChild3,"basic: ccc", "Hello, ccc").start();
+            new MultipleClientTester(socketChild4,"basic: ddd", "Hello, dddd").start();
+            new MultipleClientTester(socketChild5,"basic: eee", "Hello, eee").start();
+        }
+        catch(AssertionError e)
+        {
+            assert false;
+        }
 
 /*        if(!response.equals("Hello, garisian"))
         {
@@ -121,7 +133,6 @@ public class ServerRunnerTest extends TestCase
         String response = br.readLine();
         //socket.close();
         //System.out.println("TESTFILE ---  server responded: \"" + response+"\"");
-
         return response;
     }
 
@@ -132,11 +143,13 @@ public class ServerRunnerTest extends TestCase
         private String message;
         private Socket server;
         private Socket parent;
+        private String expectedResult;
 
-        public MultipleClientTester(Socket server, String message)
+        public MultipleClientTester(Socket server, String message, String expectedResult)
         {
             this.message = message;
             this.server = server;
+            this.expectedResult = expectedResult;
            // this.parent = parent;
         }
 
@@ -154,6 +167,11 @@ public class ServerRunnerTest extends TestCase
                 System.out.println("Creating socket to '" + server + "' on port " + portNumber);
                 String response = sendMessage(server,message);
 
+                if(!response.equals(expectedResult))
+                {
+                    assert false;
+                    throw new AssertionError();
+                }
                 //PrintWriter out = new PrintWriter(parent.getOutputStream(), true);
                 //out.println(response);
 

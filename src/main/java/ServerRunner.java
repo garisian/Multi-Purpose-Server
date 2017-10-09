@@ -20,11 +20,13 @@ public class ServerRunner extends Thread
 {
     // Variables used during message transfer
     private GenerateResponse serverResponse = new GenerateResponse();
-    private ServerSocket serverSocket;
     Socket socket;
-    private boolean keepAlive = true;
+    private static boolean keepAlive = true;
     private int portNumber;
     PrintWriter pw;
+
+    // Socket used to tell server to end
+    Socket killServer;
 
     /**
      * Description: Constructor to initialize server configurations
@@ -59,7 +61,7 @@ public class ServerRunner extends Thread
         {
             try
             {
-                serverSocket.close();
+               // serverSocket.close();
                 pw.close();
                 socket.close();
             }
@@ -108,9 +110,9 @@ public class ServerRunner extends Thread
             pw.println(response);
             System.out.println("SERVER --- Sent Response: \"" + response+"\"");
         }
-        serverSocket.close();
-        pw.close();
-        socket.close();
+        //serverSocket.close();
+        //pw.close();
+        //socket.close();
 
     }
 
@@ -123,8 +125,11 @@ public class ServerRunner extends Thread
             ServerVerifier.validateArguments(args);
 
             // Create a new thread for every incoming connection
-            try (ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]))) {
-                while (true) {
+            try (ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]));) {
+                while (keepAlive)
+                {
+                    // If something is written to server port, kill\ it
+
                     new ServerRunner(Integer.parseInt(args[0]),serverSocket.accept()).start();
                 }
             } catch (IOException e) {
