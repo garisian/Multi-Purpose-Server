@@ -9,11 +9,12 @@ package Utilities;
  *
  * Created on 2017-10-05
  */
+import java.sql.*;
+import java.util.Properties;
+
 public class GenerateResponse
 {
-    public GenerateResponse()
-    {
-    }
+    public GenerateResponse() {}
 
     public String generate(String message)
     {
@@ -21,6 +22,18 @@ public class GenerateResponse
         if(data[0].equals("basic"))
         {
             return "Hello, "+data[1].trim();
+        }
+        if(data[0].equals("sqlTest"))
+        {
+            try
+            {
+                DatabaseExecuter.getNames();
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+                e.printStackTrace();
+            }
         }
         return null;
     }
