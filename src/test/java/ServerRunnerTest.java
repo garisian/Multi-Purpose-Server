@@ -1,3 +1,4 @@
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import junit.framework.TestCase;
 
 import java.io.BufferedReader;
@@ -63,7 +64,7 @@ public class ServerRunnerTest extends TestCase
     /**
      * Description: Write a name to server and see if it returns proper response
      */
-    public void test_sendName_GetHelloName() throws IOException
+    public void stest_sendName_GetHelloName() throws IOException
     {
         final String host = "localhost";
         final String testMessage = "basic: garisian";
@@ -82,7 +83,7 @@ public class ServerRunnerTest extends TestCase
      * Description: Write a name to server and see if it returns proper response from multiple different clients
      *              to test concurrency
      */
-    public void test_sendMultipleName_GetHelloName() throws IOException
+    public void stest_sendMultipleName_GetHelloName() throws IOException
     {
         final String host = "localhost";
 
@@ -116,14 +117,43 @@ public class ServerRunnerTest extends TestCase
     }
 
     /**
+     * Description: Create a user and save it in the database
+     */
+    public void test_addUser() throws IOException
+    {
+        String testMessage = "createUser: gary, abc1235@gmail.com, garisian, kana";
+        final String host = "localhost";
+
+        Socket socket = new Socket(host, portNumber);
+        String result = sendRequest_getResponse(socket,testMessage);
+        if(Boolean.parseBoolean(result)){assert true; return;}
+        assert false;
+
+    }
+
+    /**
+     * Description: Create a user and save it in the database
+     */
+    public void test_deleteUser() throws IOException
+    {
+        String testMessage = "deleteUser: abc1235@gmail.com";
+        final String host = "localhost";
+
+        Socket socket = new Socket(host, portNumber);
+        String result = sendRequest_getResponse(socket,testMessage);
+        if(Boolean.parseBoolean(result)){assert true; return;}
+        assert false;
+    }
+
+    /**
      * Description: Write a name to server and see if it returns proper response
      */
-    public void test_sampleDatabaseCall() throws IOException
+    public void stest_sampleDatabaseCall() throws IOException
     {
         final String host = "localhost";
         final String testMessage = "sqlTest: garisian";
 
-        System.out.println("Creating socket to '" + host + "' on port " + portNumber);
+        //System.out.println("Creating socket to '" + host + "' on port " + portNumber);
         Socket socket = new Socket(host, portNumber);
         String result = sendRequest_getResponse(socket,testMessage);
         System.out.println(result);

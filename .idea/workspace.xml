@@ -16,8 +16,8 @@
       <file leaf-file-name="ServerRunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ServerRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="114" column="10" lean-forward="false" selection-start-line="114" selection-start-column="10" selection-end-line="114" selection-end-column="10" />
+            <state relative-caret-position="884">
+              <caret line="109" column="31" lean-forward="false" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#ServerRunner#0;class#ServerRunner#0" expanded="false" />
@@ -28,34 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerRunnerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ServerRunnerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="128" column="35" lean-forward="false" selection-start-line="128" selection-start-column="35" selection-end-line="128" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="e#781#1405#0" expanded="true" />
-                <element signature="e#1404#1405#0" expanded="true" />
-                <element signature="method#tearDown#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="docComment;method#test_sendName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="docComment;method#test_sendMultipleName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="e#2533#2541#0" expanded="true" />
-                <element signature="docComment;method#sendRequest_getResponse#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#sendRequest_getResponse#0;class#ServerRunnerTest#0" expanded="false" />
-                <marker date="1507519857328" expanded="false" signature="1777:2187" ph="{...}" />
-                <marker date="1507519857328" expanded="false" signature="2434:3621" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GenerateResponse.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/GenerateResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+            <state relative-caret-position="435">
+              <caret line="61" column="49" lean-forward="false" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,10 +43,48 @@
       <file leaf-file-name="DatabaseExecuter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/DatabaseExecuter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="29" column="94" lean-forward="false" selection-start-line="29" selection-start-column="94" selection-end-line="29" selection-end-column="94" />
+            <state relative-caret-position="1095">
+              <caret line="185" column="9" lean-forward="false" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="docComment;method#getNames#0;class#DatabaseExecuter#0" expanded="false" />
+                <element signature="method#getNames#0;class#DatabaseExecuter#0" expanded="false" />
+                <element signature="docComment;method#createSingleUser#0;class#DatabaseExecuter#0" expanded="false" />
+                <element signature="method#createSingleUser#0;class#DatabaseExecuter#0" expanded="false" />
+                <element signature="docComment;method#createUser#0;class#DatabaseExecuter#0" expanded="false" />
+                <element signature="docComment;method#deleteUser#0;class#DatabaseExecuter#0" expanded="false" />
+                <element signature="docComment;method#extractUser#0;class#DatabaseExecuter#0" expanded="false" />
+                <element signature="method#extractUser#0;class#DatabaseExecuter#0" expanded="false" />
+                <element signature="e#6479#6487#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerRunnerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ServerRunnerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="123" column="46" lean-forward="false" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="method#setUp#0;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="e#839#1463#0" expanded="true" />
+                <element signature="e#1462#1463#0" expanded="true" />
+                <element signature="method#tearDown#0;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="docComment;method#stest_sendName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="docComment;method#stest_sendMultipleName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="e#2593#2601#0" expanded="true" />
+                <element signature="docComment;method#stest_sampleDatabaseCall#0;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="docComment;method#sendRequest#0;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="method#sendRequest#0;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="docComment;method#sendRequest_getResponse#0;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="method#sendRequest_getResponse#0;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="class#MultipleClientTester#0;class#ServerRunnerTest#0" expanded="false" />
+                <marker date="1507676647583" expanded="false" signature="1836:2246" ph="{...}" />
+                <marker date="1507676647583" expanded="false" signature="2494:3681" ph="{...}" />
+                <marker date="1507676647583" expanded="false" signature="4778:5131" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -99,9 +114,11 @@
       <find>sendAndReceiveMessage</find>
       <find>could not listen</find>
       <find>killserver</find>
-      <find>serverSocket</find>
       <find>assert false</find>
+      <find>serverSocket</find>
       <find>sendRequest_getResponse</find>
+      <find>datasource</find>
+      <find>creating so</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -120,9 +137,9 @@
         <option value="$PROJECT_DIR$/src/main/java/SampleClient.java" />
         <option value="$PROJECT_DIR$/src/test/java/SampleTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerRunner.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ServerRunnerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utilities/GenerateResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utilities/DatabaseExecuter.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServerRunnerTest.java" />
       </list>
     </option>
   </component>
@@ -447,34 +464,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ServerRunnerTest - 2017.10.08 at 19h 37m 57s.xml">
+    <history-entry file="ServerRunnerTest - 2017.10.10 at 15h 26m 39s.xml">
       <configuration name="ServerRunnerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ServerRunnerTest - 2017.10.08 at 19h 38m 36s.xml">
+    <history-entry file="ServerRunnerTest - 2017.10.10 at 18h 45m 38s.xml">
       <configuration name="ServerRunnerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ServerRunnerTest - 2017.10.08 at 19h 39m 21s.xml">
+    <history-entry file="ServerRunnerTest - 2017.10.10 at 18h 46m 11s.xml">
       <configuration name="ServerRunnerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ServerRunnerTest - 2017.10.08 at 19h 39m 43s.xml">
+    <history-entry file="ServerRunnerTest - 2017.10.10 at 18h 48m 51s.xml">
       <configuration name="ServerRunnerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ServerRunnerTest - 2017.10.08 at 23h 24m 57s.xml">
+    <history-entry file="ServerRunnerTest - 2017.10.10 at 18h 49m 21s.xml">
       <configuration name="ServerRunnerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ServerRunnerTest - 2017.10.08 at 23h 27m 53s.xml">
+    <history-entry file="ServerRunnerTest - 2017.10.10 at 18h 52m 58s.xml">
       <configuration name="ServerRunnerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ServerRunnerTest - 2017.10.08 at 23h 28m 33s.xml">
+    <history-entry file="ServerRunnerTest - 2017.10.10 at 18h 53m 39s.xml">
       <configuration name="ServerRunnerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ServerRunnerTest - 2017.10.08 at 23h 29m 06s.xml">
+    <history-entry file="ServerRunnerTest - 2017.10.10 at 18h 53m 52s.xml">
       <configuration name="ServerRunnerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ServerRunnerTest - 2017.10.08 at 23h 31m 01s.xml">
+    <history-entry file="ServerRunnerTest - 2017.10.10 at 18h 54m 14s.xml">
       <configuration name="ServerRunnerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ServerRunnerTest - 2017.10.08 at 23h 34m 52s.xml">
+    <history-entry file="ServerRunnerTest - 2017.10.10 at 19h 04m 10s.xml">
       <configuration name="ServerRunnerTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -515,7 +532,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -592,8 +609,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="114" column="10" lean-forward="false" selection-start-line="114" selection-start-column="10" selection-end-line="114" selection-end-column="10" />
+        <state relative-caret-position="884">
+          <caret line="109" column="31" lean-forward="false" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#ServerRunner#0;class#ServerRunner#0" expanded="false" />
@@ -603,43 +620,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ServerRunnerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/GenerateResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="128" column="35" lean-forward="false" selection-start-line="128" selection-start-column="35" selection-end-line="128" selection-end-column="35" />
+        <state relative-caret-position="435">
+          <caret line="61" column="49" lean-forward="false" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;class#ServerRunnerTest#0" expanded="false" />
-            <element signature="e#781#1405#0" expanded="true" />
-            <element signature="e#1404#1405#0" expanded="true" />
-            <element signature="method#tearDown#0;class#ServerRunnerTest#0" expanded="false" />
-            <element signature="docComment;method#test_sendName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
-            <element signature="docComment;method#test_sendMultipleName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
-            <element signature="e#2533#2541#0" expanded="true" />
-            <element signature="docComment;method#sendRequest_getResponse#0;class#ServerRunnerTest#0" expanded="false" />
-            <element signature="method#sendRequest_getResponse#0;class#ServerRunnerTest#0" expanded="false" />
-            <marker date="1507519857328" expanded="false" signature="1777:2187" ph="{...}" />
-            <marker date="1507519857328" expanded="false" signature="2434:3621" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/GenerateResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServerRunnerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        <state relative-caret-position="307">
+          <caret line="123" column="46" lean-forward="false" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;class#ServerRunnerTest#0" expanded="false" />
+            <element signature="method#setUp#0;class#ServerRunnerTest#0" expanded="false" />
+            <element signature="e#839#1463#0" expanded="true" />
+            <element signature="e#1462#1463#0" expanded="true" />
+            <element signature="method#tearDown#0;class#ServerRunnerTest#0" expanded="false" />
+            <element signature="docComment;method#stest_sendName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
+            <element signature="docComment;method#stest_sendMultipleName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
+            <element signature="e#2593#2601#0" expanded="true" />
+            <element signature="docComment;method#stest_sampleDatabaseCall#0;class#ServerRunnerTest#0" expanded="false" />
+            <element signature="docComment;method#sendRequest#0;class#ServerRunnerTest#0" expanded="false" />
+            <element signature="method#sendRequest#0;class#ServerRunnerTest#0" expanded="false" />
+            <element signature="docComment;method#sendRequest_getResponse#0;class#ServerRunnerTest#0" expanded="false" />
+            <element signature="method#sendRequest_getResponse#0;class#ServerRunnerTest#0" expanded="false" />
+            <element signature="class#MultipleClientTester#0;class#ServerRunnerTest#0" expanded="false" />
+            <marker date="1507676647583" expanded="false" signature="1836:2246" ph="{...}" />
+            <marker date="1507676647583" expanded="false" signature="2494:3681" ph="{...}" />
+            <marker date="1507676647583" expanded="false" signature="4778:5131" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/DatabaseExecuter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="29" column="94" lean-forward="false" selection-start-line="29" selection-start-column="94" selection-end-line="29" selection-end-column="94" />
+        <state relative-caret-position="1095">
+          <caret line="185" column="9" lean-forward="false" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;method#getNames#0;class#DatabaseExecuter#0" expanded="false" />
+            <element signature="method#getNames#0;class#DatabaseExecuter#0" expanded="false" />
+            <element signature="docComment;method#createSingleUser#0;class#DatabaseExecuter#0" expanded="false" />
+            <element signature="method#createSingleUser#0;class#DatabaseExecuter#0" expanded="false" />
+            <element signature="docComment;method#createUser#0;class#DatabaseExecuter#0" expanded="false" />
+            <element signature="docComment;method#deleteUser#0;class#DatabaseExecuter#0" expanded="false" />
+            <element signature="docComment;method#extractUser#0;class#DatabaseExecuter#0" expanded="false" />
+            <element signature="method#extractUser#0;class#DatabaseExecuter#0" expanded="false" />
+            <element signature="e#6479#6487#0" expanded="true" />
           </folding>
         </state>
       </provider>
