@@ -58,8 +58,52 @@ public class GenerateResponse
         {
             try
             {
-                boolean success = DatabaseExecuter.deleteUser(data[1]);
+                boolean success = DatabaseExecuter.deleteUser("\""+data[1].trim()+"\"");
                 return Boolean.toString(success);
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+                e.printStackTrace();
+            }
+        }
+
+        if(data[0].equals("existsUser"))
+        {
+            try
+            {
+                boolean success = DatabaseExecuter.existsUser("\""+data[1].trim()+"\"");
+                return Boolean.toString(success);
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+                e.printStackTrace();
+            }
+        }
+        if(data[0].equals("addData"))
+        {
+            // addData: abc123@gmail.com, sampleTitle, sampleSummary, sampleURL, sampleTags
+            try
+            {
+                String[] splitData = data[1].split(",");
+                boolean success = DatabaseExecuter.addData(splitData);
+                return Boolean.toString(success);
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+                e.printStackTrace();
+            }
+        }
+
+        if(data[0].equals("extractData"))
+        {
+            // addData: abc123@gmail.com, sampleTitle, sampleSummary, sampleURL, sampleTags
+            try
+            {
+                String success = DatabaseExecuter.extractUserData(data[1].trim());
+                //return Boolean.toString(success);
             }
             catch(Exception e)
             {

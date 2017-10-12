@@ -26,6 +26,7 @@ public class ServerRunnerTest extends TestCase
     private int portNumber = 29;
     private ServerRunner testServer;
     private boolean setupDone = false;
+    private String deleteEmailID = "abc123@gmail.com";
 
     public void setUp() throws Exception
     {
@@ -121,7 +122,7 @@ public class ServerRunnerTest extends TestCase
      */
     public void test_addUser() throws IOException
     {
-        String testMessage = "createUser: gary, abc1235@gmail.com, garisian, kana";
+        String testMessage = "createUser: gary, "+deleteEmailID+", garisian, kana";
         final String host = "localhost";
 
         Socket socket = new Socket(host, portNumber);
@@ -132,15 +133,29 @@ public class ServerRunnerTest extends TestCase
     }
 
     /**
-     * Description: Create a user and save it in the database
+     * Description: Checks if a user is already created with specified email
      */
-    public void test_deleteUser() throws IOException
+    public void test_existsUser() throws IOException
     {
-        String testMessage = "deleteUser: abc1235@gmail.com";
+        String testMessage = "existsUser: abc123@gmail.com";
         final String host = "localhost";
 
         Socket socket = new Socket(host, portNumber);
         String result = sendRequest_getResponse(socket,testMessage);
+        if(Boolean.parseBoolean(result)){assert true; return;}
+        assert false;
+    }
+
+    /**
+     * Description: Create a user and save it in the database
+     */
+    public void test_deleteUser() throws IOException
+    {
+        String testMessage = "deleteUser: "+deleteEmailID;
+        final String host = "localhost";
+
+        Socket socket = new Socket(host, portNumber);
+        String result = sendRequest_getResponse(socket,testMessage.trim());
         if(Boolean.parseBoolean(result)){assert true; return;}
         assert false;
     }
