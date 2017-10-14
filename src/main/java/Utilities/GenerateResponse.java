@@ -72,7 +72,7 @@ public class GenerateResponse
         {
             try
             {
-                boolean success = DatabaseExecuter.existsUser("\""+data[1].trim()+"\"");
+                boolean success = DatabaseExecuter.existsUser(data[1].trim());
                 return Boolean.toString(success);
             }
             catch(Exception e)
@@ -83,11 +83,11 @@ public class GenerateResponse
         }
         if(data[0].equals("addData"))
         {
-            // addData: abc123@gmail.com, sampleTitle, sampleSummary, sampleURL, sampleTags
+            // addData: {"email":abc123@gmail.com, "title":sampleTitle, "summary":sampleSummary, "url":sampleURL, "tags":"sampleTags}
             try
             {
-                String[] splitData = data[1].split(",");
-                boolean success = DatabaseExecuter.addData(splitData);
+                boolean success = DatabaseExecuter.addData(data[1].trim());
+                //boolean success = DatabaseExecuter.addData(new String[]{});
                 return Boolean.toString(success);
             }
             catch(Exception e)

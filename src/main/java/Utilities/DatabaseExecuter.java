@@ -1,6 +1,7 @@
 package Utilities;
 
 import com.sun.xml.internal.ws.spi.db.DatabindingException;
+import org.json.JSONObject;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -218,10 +219,11 @@ public class DatabaseExecuter
 
             // execute the preparedstatement
             ResultSet queryResults = preparedStmt.executeQuery();
-            conn.close();
             if(queryResults.next()) {
                 result = queryResults.getString(1);
             }
+            conn.close();
+            System.out.println(result);
             if(result.equals("null"))
             {
                 return false;
@@ -289,12 +291,19 @@ public class DatabaseExecuter
      *
      * @return none
      */
-    public static boolean addData(String[] data) throws SQLException
+    public static boolean addData(String data) throws SQLException
     {
         // sample data string:
-        // addData: abc123@gmail.com, sampleTitle, sampleSummary, sampleURL, sampleTags
+        // addData: {"email":abc123@gmail.com, "title":sampleTitle, "summary":sampleSummary, "url":sampleURL, "tags":"sampleTags}
         try
         {
+            JSONObject jsonObj = new JSONObject(data).getJSONObject(0);
+            JSONObject json = jsonObj.getJSONArray("email").getJSONObject(0);
+            JSONObject json = jsonObj.getJSONObject("title");
+            JSONObject json = jsonObj.getJSONObject("summary");
+            JSONObject json = jsonObj.getJSONObject("url");
+            JSONObject json = jsonObj.getJSONObject("tags");
+
             // create a mysql database connection
             String myUrl = "jdbc:mysql://localhost:"+port+"/dataSource";
             Connection conn = DriverManager.getConnection(myUrl, "root", "password");
@@ -367,7 +376,7 @@ public class DatabaseExecuter
                     "},\"url\":{"+ myRs.getString("url")+
                     "},\"tags\":{"+myRs.getString("tags")+
                     "}}";
-            
+
         }
         return resultString;
     }

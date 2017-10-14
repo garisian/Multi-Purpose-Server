@@ -26,7 +26,7 @@ public class ServerRunnerTest extends TestCase
     private int portNumber = 29;
     private ServerRunner testServer;
     private boolean setupDone = false;
-    private String deleteEmailID = "abc123@gmail.com";
+    private String deleteEmailID = "lalala@gmail.com";
 
     public void setUp() throws Exception
     {
@@ -65,7 +65,7 @@ public class ServerRunnerTest extends TestCase
     /**
      * Description: Write a name to server and see if it returns proper response
      */
-    public void stest_sendName_GetHelloName() throws IOException
+    public void ignore_test_sendName_GetHelloName() throws IOException
     {
         final String host = "localhost";
         final String testMessage = "basic: garisian";
@@ -84,7 +84,7 @@ public class ServerRunnerTest extends TestCase
      * Description: Write a name to server and see if it returns proper response from multiple different clients
      *              to test concurrency
      */
-    public void stest_sendMultipleName_GetHelloName() throws IOException
+    public void ignore_test_sendMultipleName_GetHelloName() throws IOException
     {
         final String host = "localhost";
 
@@ -120,7 +120,7 @@ public class ServerRunnerTest extends TestCase
     /**
      * Description: Create a user and save it in the database
      */
-    public void test_addUser() throws IOException
+    public void ignore_test_addUser() throws IOException
     {
         String testMessage = "createUser: gary, "+deleteEmailID+", garisian, kana";
         final String host = "localhost";
@@ -149,7 +149,7 @@ public class ServerRunnerTest extends TestCase
     /**
      * Description: Create a user and save it in the database
      */
-    public void test_deleteUser() throws IOException
+    public void ignore_test_deleteUser() throws IOException
     {
         String testMessage = "deleteUser: "+deleteEmailID;
         final String host = "localhost";
