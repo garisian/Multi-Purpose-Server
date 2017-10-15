@@ -111,6 +111,6 @@ public class GenerateResponse
                 e.printStackTrace();
             }
         }
-        return null;
+        return message;
     }
 }

@@ -1,7 +1,10 @@
 import Utilities.GenerateResponse;
 import Utilities.ServerConfigurationException;
 import Utilities.ServerVerifier;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import org.json.HTTP;
+import org.json.JSONException;
+import org.json.JSONObject;
+//import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -102,14 +105,30 @@ public class ServerRunner extends Thread
             pw = new PrintWriter(os, true);
             //pw.println("What's you name?");
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            String str = br.readLine();
+            // read a single line
+/*            BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String str = br.readLine();*/
 
-            String response = serverResponse.generate(str);
+            InputStreamReader isr = new InputStreamReader(socket.getInputStream());
+            BufferedReader reader = new BufferedReader(isr);
+            String line = reader.readLine();
+            StringBuffer jb = new StringBuffer();
+            int lineNum = 0;
+            System.out.println("Read in loop "+lineNum+"..."+line);
+            while (!line.isEmpty())
+            {
+                if (line.matches("^POST.*$")) {
+                    System.out.println("Read in loop "+lineNum+"..."+line);
+                }
+                line = reader.readLine();
+            }
 
-            pw.println(response);
-            System.out.println("SERVER --- Sent Response: \"" + response+"\"");
-        }
+            //String response = serverResponse.generate(str);
+            //String response = "HTTP/1.1 200 OK\r\n\r\n";
+            //pw.println(response);
+            //System.out.println("SERVER --- Sent Response: \"" + response+"\"");
+
+      }
         //serverSocket.close();
         //pw.close();
         //socket.close();

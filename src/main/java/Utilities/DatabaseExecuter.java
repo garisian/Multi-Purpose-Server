@@ -1,7 +1,7 @@
 package Utilities;
 
-import com.sun.xml.internal.ws.spi.db.DatabindingException;
-import org.json.JSONObject;
+//import com.sun.xml.internal.ws.spi.db.DatabindingException;
+//import org.json.JSONObject;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -295,7 +295,7 @@ public class DatabaseExecuter
     {
         // sample data string:
         // addData: {"email":abc123@gmail.com, "title":sampleTitle, "summary":sampleSummary, "url":sampleURL, "tags":"sampleTags}
-        try
+/*        try
         {
             JSONObject jsonObj = new JSONObject(data).getJSONObject(0);
             JSONObject json = jsonObj.getJSONArray("email").getJSONObject(0);
@@ -340,7 +340,9 @@ public class DatabaseExecuter
             System.err.println("Got an exception!");
             System.err.println(e.getMessage());
             return false;
-        }
+        }*/
+        System.out.println(data);
+        return true;
     }
 
     /**
