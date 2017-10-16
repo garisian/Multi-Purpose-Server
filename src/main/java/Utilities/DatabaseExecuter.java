@@ -3,6 +3,8 @@ package Utilities;
 //import com.sun.xml.internal.ws.spi.db.DatabindingException;
 //import org.json.JSONObject;
 
+import org.json.JSONObject;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -287,25 +289,21 @@ public class DatabaseExecuter
     /**
      * Description: Add data to user's profile from BookMeNow
      *
-     * @param: data: Insert a data entry with tags
+     * @param: data: {"title":"sample Title","url":"https://stackoverflow.com/questions/6138127/how-to-do-url-decoding-in-java","summary":"lalalalala","tags":""}
+     *               in string format
      *
      * @return none
      */
     public static boolean addData(String data) throws SQLException
     {
         // sample data string:
-        // addData: {"email":abc123@gmail.com, "title":sampleTitle, "summary":sampleSummary, "url":sampleURL, "tags":"sampleTags}
-/*        try
+        //{"title":"sample Title","url":"https://stackoverflow.com/questions/6138127/how-to-do-url-decoding-in-java","summary":"lalalalala","tags":""}
+        try
         {
-            JSONObject jsonObj = new JSONObject(data).getJSONObject(0);
-            JSONObject json = jsonObj.getJSONArray("email").getJSONObject(0);
-            JSONObject json = jsonObj.getJSONObject("title");
-            JSONObject json = jsonObj.getJSONObject("summary");
-            JSONObject json = jsonObj.getJSONObject("url");
-            JSONObject json = jsonObj.getJSONObject("tags");
-
+            JSONObject jsonObj = new JSONObject(data);
+            System.out.println(jsonObj);
             // create a mysql database connection
-            String myUrl = "jdbc:mysql://localhost:"+port+"/dataSource";
+            String myUrl = "jdbc:mysql://localhost:"+port+"/dataSource?verifyServerCertificate=false";
             Connection conn = DriverManager.getConnection(myUrl, "root", "password");
 
             // create a sql date object so we can use it in our INSERT statement
@@ -313,16 +311,15 @@ public class DatabaseExecuter
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
 
             // the mysql insert statement
-            String query = " insert into bookedInfo (email, title, summary, url, tags)"
-                    + " values (?, ?, ?, ?, ?)";
+            String query = " insert into bookmarked_data (title, summary, url, tags)"
+                    + " values (?, ?, ?, ?)";
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString (1, data[0]);
-            preparedStmt.setString (2, data[1]);
-            preparedStmt.setString (3, data[2]);
-            preparedStmt.setString (4, data[3]);
-            preparedStmt.setString (5, data[4]);
+            preparedStmt.setString (1, jsonObj.getString("title"));
+            preparedStmt.setString (2, jsonObj.getString("summary"));
+            preparedStmt.setString (3, jsonObj.getString("url"));
+            preparedStmt.setString (4, jsonObj.getString("tags"));
 
 
             // execute the preparedstatement
@@ -340,9 +337,8 @@ public class DatabaseExecuter
             System.err.println("Got an exception!");
             System.err.println(e.getMessage());
             return false;
-        }*/
-        System.out.println(data);
-        return true;
+        }
+        //System.out.println(data);
     }
 
     /**

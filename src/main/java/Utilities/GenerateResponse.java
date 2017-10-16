@@ -9,6 +9,7 @@ package Utilities;
  *
  * Created on 2017-10-05
  */
+import java.io.UnsupportedEncodingException;
 import java.sql.*;
 import java.util.Properties;
 
@@ -16,17 +17,24 @@ public class GenerateResponse
 {
     public GenerateResponse() {}
 
-    public String generate(String message)
+    public String generate(String messagetype, String messageData)
     {
-        String[] data = message.split(":");
         // basic: randomName
-        if(data[0].equals("basic"))
+        String removeASCII = "";
+        try
         {
-            return "Hello, "+data[1].trim();
+            removeASCII = recreateString(messageData);
+        }
+        catch(UnsupportedEncodingException e)
+        {}
+        //System.out.println(removeASCII);
+        if(messagetype.equals("basic"))
+        {
+            return "Hello, "+messageData.trim();
         }
 
         // sqlTest: nonsense
-        if(data[0].equals("sqlTest"))
+        if(messagetype.equals("sqlTest"))
         {
             try
             {
@@ -40,11 +48,11 @@ public class GenerateResponse
         }
 
         // createUser: gary, abc123@gmail.com, garisian, kana
-        if(data[0].equals("createUser"))
+        if(messagetype.equals("createUser"))
         {
             try
             {
-                boolean success = DatabaseExecuter.createUser(data[1]);
+                boolean success = DatabaseExecuter.createUser(removeASCII);
                 return Boolean.toString(success);
             }
             catch(Exception e)
@@ -54,11 +62,11 @@ public class GenerateResponse
             }
         }
 
-        if(data[0].equals( "deleteUser"))
+        if(messagetype.equals( "deleteUser"))
         {
             try
             {
-                boolean success = DatabaseExecuter.deleteUser("\""+data[1].trim()+"\"");
+                boolean success = DatabaseExecuter.deleteUser("\""+removeASCII.trim()+"\"");
                 return Boolean.toString(success);
             }
             catch(Exception e)
@@ -68,11 +76,11 @@ public class GenerateResponse
             }
         }
 
-        if(data[0].equals("existsUser"))
+        if(messagetype.equals("existsUser"))
         {
             try
             {
-                boolean success = DatabaseExecuter.existsUser(data[1].trim());
+                boolean success = DatabaseExecuter.existsUser(removeASCII.trim());
                 return Boolean.toString(success);
             }
             catch(Exception e)
@@ -81,12 +89,12 @@ public class GenerateResponse
                 e.printStackTrace();
             }
         }
-        if(data[0].equals("addData"))
+        if(messagetype.equals("addData"))
         {
             // addData: {"email":abc123@gmail.com, "title":sampleTitle, "summary":sampleSummary, "url":sampleURL, "tags":"sampleTags}
             try
             {
-                boolean success = DatabaseExecuter.addData(data[1].trim());
+                boolean success = DatabaseExecuter.addData(removeASCII.trim());
                 //boolean success = DatabaseExecuter.addData(new String[]{});
                 return Boolean.toString(success);
             }
@@ -97,12 +105,12 @@ public class GenerateResponse
             }
         }
 
-        if(data[0].equals("extractData"))
+        if(messagetype.equals("extractData"))
         {
             // addData: abc123@gmail.com, sampleTitle, sampleSummary, sampleURL, sampleTags
             try
             {
-                String success = DatabaseExecuter.extractUserData(data[1].trim());
+                String success = DatabaseExecuter.extractUserData(removeASCII.trim());
                 //return Boolean.toString(success);
             }
             catch(Exception e)
@@ -111,6 +119,10 @@ public class GenerateResponse
                 e.printStackTrace();
             }
         }
-        return message;
+        return null;
+    }
+
+    private String recreateString(String reqeust) throws UnsupportedEncodingException {
+        return java.net.URLDecoder.decode(reqeust, "UTF-8");
     }
 }

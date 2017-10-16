@@ -100,6 +100,10 @@ public class ServerRunner extends Thread
     private void startServer() throws IOException
     {
         while (keepAlive) {
+            // Variables used to store data from said POST request
+            String messageType = "";
+            String messageData = "";
+
             //socket = serverSocket.accept();
             OutputStream os = socket.getOutputStream();
             pw = new PrintWriter(os, true);
@@ -114,16 +118,17 @@ public class ServerRunner extends Thread
             String line = reader.readLine();
             StringBuffer jb = new StringBuffer();
             int lineNum = 0;
-            System.out.println("Read in loop "+lineNum+"..."+line);
             while (!line.isEmpty())
             {
                 if (line.matches("^POST.*$")) {
-                    System.out.println("Read in loop "+lineNum+"..."+line);
+                    String[] splitData = line.split("data=");
+                    String firstHalf = splitData[0].split("type=")[1];
+                    messageType = firstHalf.substring(0, firstHalf.length() - 1);
+                    messageData = splitData[1].split("HTTP/1.1")[0];
                 }
                 line = reader.readLine();
             }
-
-            //String response = serverResponse.generate(str);
+            String response = serverResponse.generate(messageType, messageData);
             //String response = "HTTP/1.1 200 OK\r\n\r\n";
             //pw.println(response);
             //System.out.println("SERVER --- Sent Response: \"" + response+"\"");
