@@ -27,6 +27,7 @@ public class ServerRunner extends Thread
     private static boolean keepAlive = true;
     private int portNumber;
         PrintWriter pw;
+    OutputStream os;
 
     // Socket used to tell server to end
     Socket killServer;
@@ -105,7 +106,7 @@ public class ServerRunner extends Thread
             String messageData = "";
 
             //socket = serverSocket.accept();
-            OutputStream os = socket.getOutputStream();
+            os = socket.getOutputStream();
             pw = new PrintWriter(os, true);
             //pw.println("What's you name?");
 
@@ -131,8 +132,10 @@ public class ServerRunner extends Thread
             }
             String response = serverResponse.generate(messageType, messageData);
             //String response = "HTTP/1.1 200 OK\r\n\r\n";
-            pw.println(response);
-            //System.out.println("SERVER --- Sent Response: \"" + response+"\"");
+            System.out.println(response);
+            os.write(response.getBytes("UTF-8"));
+            //pw.println(response.getBytes("UTF-8"));
+            System.out.println("SERVER --- Sent Response: \"" + response.getBytes("UTF-8")+"\"");
 
       }
         //serverSocket.close();

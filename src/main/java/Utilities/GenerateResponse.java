@@ -9,6 +9,7 @@ package Utilities;
  *
  * Created on 2017-10-05
  */
+import java.util.Date;
 import java.io.UnsupportedEncodingException;
 import java.sql.*;
 import java.util.Properties;
@@ -118,11 +119,37 @@ public class GenerateResponse
                             "\"json\": null,"+
                             "\"origin\": \"--.--.--.--\","+
                             "\"url\": \"localhost:9635/\"}";
-                    String another = "HTTP/1.1 200 OKAY\n" +
+                    String another = "HTTP 200 OK\n" +
                             "Upgrade: TLS/1.0, HTTP/1.1\n" +
                             "Connection: Upgrade" +
                             "{}";
-                    return another;
+
+                    String attemptanother = "HTTP 200 OK\n" +
+                            "Upgrade: TLS/1.0, HTTP/1.1\n" +
+                            "Connection: Upgrade" +
+                            "{}";
+                    Date currentDate = new Date();
+                    String httpResponse = "HTTP/1.1 200 OK\r\n\r\n"+currentDate+"\n"+
+                            "Server: Apache/1.1.3\n" +
+                            "Content-type: text/html"+
+                            "\n" +
+                            "<title>Polytechnic University's Student Council Server</title>\n" +
+                            "<body bgcolor=\"white\" link=#0000dd vlink=#0000dd>\n" +
+                            "\n" +
+                            "<img src=\"http://www.poly.edu/images/poly_3d.jpeg\" alt=\"\">";
+                    String againagain = "HTTP/1.1 200 OK\\r\\nCache-Control: no-cache, private\\r\\nContent-Length: 107\\r\\nDate: Mon, 24 Nov 2014 10:21:21 GMT\\r\\n\\r\\n";
+
+                    String tryThis =
+                            "HTTP/1.1 200 OK\n"+
+                            "Date: "+currentDate+"\n"+
+                            "Server: "+"Gary's Custom Server"+"\n"+
+                            "Content-Length: 44"+"\n"+
+                            "Connection: close"+"\n"+
+                            "Content-Type: text/html"+"\n"+
+                            "\n"+
+                            "<html><body><h1>It works!</h1></body></html>";
+
+                    return tryThis;
                 }
                 return "HTTP 400 OK";
             }
