@@ -311,8 +311,8 @@ public class DatabaseExecuter
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
 
             // the mysql insert statement
-            String query = " insert into bookmarked_data (title, summary, url, tags)"
-                    + " values (?, ?, ?, ?)";
+            String query = " insert into bookmarked_data (title, summary, url, tags, email)"
+                    + " values (?, ?, ?, ?, ?)";
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -320,6 +320,7 @@ public class DatabaseExecuter
             preparedStmt.setString (2, jsonObj.getString("summary"));
             preparedStmt.setString (3, jsonObj.getString("url"));
             preparedStmt.setString (4, jsonObj.getString("tags"));
+            preparedStmt.setString (5, jsonObj.getString("email"));
 
 
             // execute the preparedstatement

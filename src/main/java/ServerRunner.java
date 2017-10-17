@@ -26,7 +26,7 @@ public class ServerRunner extends Thread
     Socket socket;
     private static boolean keepAlive = true;
     private int portNumber;
-    PrintWriter pw;
+        PrintWriter pw;
 
     // Socket used to tell server to end
     Socket killServer;
@@ -120,6 +120,7 @@ public class ServerRunner extends Thread
             int lineNum = 0;
             while (!line.isEmpty())
             {
+                System.out.println(line);
                 if (line.matches("^POST.*$")) {
                     String[] splitData = line.split("data=");
                     String firstHalf = splitData[0].split("type=")[1];
@@ -130,7 +131,7 @@ public class ServerRunner extends Thread
             }
             String response = serverResponse.generate(messageType, messageData);
             //String response = "HTTP/1.1 200 OK\r\n\r\n";
-            //pw.println(response);
+            pw.println(response);
             //System.out.println("SERVER --- Sent Response: \"" + response+"\"");
 
       }

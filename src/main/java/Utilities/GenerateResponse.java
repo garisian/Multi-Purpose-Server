@@ -96,7 +96,35 @@ public class GenerateResponse
             {
                 boolean success = DatabaseExecuter.addData(removeASCII.trim());
                 //boolean success = DatabaseExecuter.addData(new String[]{});
-                return Boolean.toString(success);
+                System.out.println(success);
+                if(success)
+                {
+
+
+                    String kindaworks = "200 OK\n" +
+                            "Content-Type: application/json\n" +
+                            " \n" +
+                            "{\"args\": {},"+"" +
+                            "\"data\": \"\","+
+                            "\"files\": {},"+
+                            "\"form\": {},"+
+                            "\"headers\": "+
+                                    "{\"Accept\": \"*/*\","+
+                                    "\"Accept-Encoding\": \"gzip, deflate\","+
+                                    "\"Cache-Control\": \"no-cache\","+
+                                    "\"Connection\": \"close\","+
+                                    "\"Content-Length\": \"0\","+
+                                    "\"Host\": \"httpbin.org\",},"+
+                            "\"json\": null,"+
+                            "\"origin\": \"--.--.--.--\","+
+                            "\"url\": \"localhost:9635/\"}";
+                    String another = "HTTP/1.1 200 OKAY\n" +
+                            "Upgrade: TLS/1.0, HTTP/1.1\n" +
+                            "Connection: Upgrade" +
+                            "{}";
+                    return another;
+                }
+                return "HTTP 400 OK";
             }
             catch(Exception e)
             {
