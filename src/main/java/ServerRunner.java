@@ -4,6 +4,7 @@ import Utilities.ServerVerifier;
 import org.json.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 //import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.io.*;
@@ -130,12 +131,14 @@ public class ServerRunner extends Thread
                 }
                 line = reader.readLine();
             }
+            System.out.println(messageData);
+            System.out.println(messageType);
             String response = serverResponse.generate(messageType, messageData);
             //String response = "HTTP/1.1 200 OK\r\n\r\n";
-            System.out.println(response);
+            //System.out.println(response);
             os.write(response.getBytes("UTF-8"));
             //pw.println(response.getBytes("UTF-8"));
-            System.out.println("SERVER --- Sent Response: \"" + response.getBytes("UTF-8")+"\"");
+           // System.out.println("SERVER --- Sent Response: \"" + response.getBytes("UTF-8")+"\"");
 
       }
         //serverSocket.close();

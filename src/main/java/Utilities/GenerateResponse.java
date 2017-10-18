@@ -93,53 +93,14 @@ public class GenerateResponse
         if(messagetype.equals("addData"))
         {
             // addData: {"email":abc123@gmail.com, "title":sampleTitle, "summary":sampleSummary, "url":sampleURL, "tags":"sampleTags}
+            Date currentDate = new Date();
             try
             {
                 boolean success = DatabaseExecuter.addData(removeASCII.trim());
-                //boolean success = DatabaseExecuter.addData(new String[]{});
-                System.out.println(success);
                 if(success)
                 {
 
-
-                    String kindaworks = "200 OK\n" +
-                            "Content-Type: application/json\n" +
-                            " \n" +
-                            "{\"args\": {},"+"" +
-                            "\"data\": \"\","+
-                            "\"files\": {},"+
-                            "\"form\": {},"+
-                            "\"headers\": "+
-                                    "{\"Accept\": \"*/*\","+
-                                    "\"Accept-Encoding\": \"gzip, deflate\","+
-                                    "\"Cache-Control\": \"no-cache\","+
-                                    "\"Connection\": \"close\","+
-                                    "\"Content-Length\": \"0\","+
-                                    "\"Host\": \"httpbin.org\",},"+
-                            "\"json\": null,"+
-                            "\"origin\": \"--.--.--.--\","+
-                            "\"url\": \"localhost:9635/\"}";
-                    String another = "HTTP 200 OK\n" +
-                            "Upgrade: TLS/1.0, HTTP/1.1\n" +
-                            "Connection: Upgrade" +
-                            "{}";
-
-                    String attemptanother = "HTTP 200 OK\n" +
-                            "Upgrade: TLS/1.0, HTTP/1.1\n" +
-                            "Connection: Upgrade" +
-                            "{}";
-                    Date currentDate = new Date();
-                    String httpResponse = "HTTP/1.1 200 OK\r\n\r\n"+currentDate+"\n"+
-                            "Server: Apache/1.1.3\n" +
-                            "Content-type: text/html"+
-                            "\n" +
-                            "<title>Polytechnic University's Student Council Server</title>\n" +
-                            "<body bgcolor=\"white\" link=#0000dd vlink=#0000dd>\n" +
-                            "\n" +
-                            "<img src=\"http://www.poly.edu/images/poly_3d.jpeg\" alt=\"\">";
-                    String againagain = "HTTP/1.1 200 OK\\r\\nCache-Control: no-cache, private\\r\\nContent-Length: 107\\r\\nDate: Mon, 24 Nov 2014 10:21:21 GMT\\r\\n\\r\\n";
-
-                    String tryThis =
+                    String responseString =
                             "HTTP/1.1 200 OK\n"+
                             "Date: "+currentDate+"\n"+
                             "Server: "+"Gary's Custom Server"+"\n"+
@@ -149,9 +110,60 @@ public class GenerateResponse
                             "\n"+
                             "<html><body><h1>It works!</h1></body></html>";
 
-                    return tryThis;
+                    return responseString;
                 }
-                return "HTTP 400 OK";
+                String responseString =
+                        "HTTP/1.1 403 Forbidden\n"+
+                                "Date: "+currentDate+"\n"+
+                                "Server: "+"Gary's Custom Server"+"\n"+
+                                "Content-Length: 44"+"\n"+
+                                "Connection: close"+"\n"+
+                                "Content-Type: text/html"+"\n"+
+                                "\n"+
+                                "<html><body><h1>It Fails!</h1></body></html>";
+
+                return responseString;
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+                e.printStackTrace();
+            }
+        }
+
+        if(messagetype.equals("emailData"))
+        {
+            // addData: abc123@gmail.com, sampleTitle, sampleSummary, sampleURL, sampleTags
+            Date currentDate = new Date();
+            try
+            {
+                String success = DatabaseExecuter.extractUserData(removeASCII.trim());
+                if(success.equals("success"))
+                {
+
+                    String responseString =
+                            "HTTP/1.1 200 OK\n"+
+                                    "Date: "+currentDate+"\n"+
+                                    "Server: "+"Gary's Custom Server"+"\n"+
+                                    "Content-Length: 44"+"\n"+
+                                    "Connection: close"+"\n"+
+                                    "Content-Type: text/html"+"\n"+
+                                    "\n"+
+                                    "<html><body><h1>Emailed!</h1></body></html>";
+
+                    return responseString;
+                }
+                String responseString =
+                        "HTTP/1.1 403 Forbidden\n"+
+                                "Date: "+currentDate+"\n"+
+                                "Server: "+"Gary's Custom Server"+"\n"+
+                                "Content-Length: 44"+"\n"+
+                                "Connection: close"+"\n"+
+                                "Content-Type: text/html"+"\n"+
+                                "\n"+
+                                "<html><body><h1>No Emails!</h1></body></html>";
+
+                return responseString;
             }
             catch(Exception e)
             {

@@ -1,14 +1,15 @@
 package Utilities;
 
-//import com.sun.xml.internal.ws.spi.db.DatabindingException;
-//import org.json.JSONObject;
-
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Properties;
+
+import static Utilities.SendEmail.makeMail;
 
 /**
  * DatabaseExectuer.java
@@ -349,9 +350,12 @@ public class DatabaseExecuter
      *
      * @return none
      */
-    public static String extractUserData(String email) throws SQLException
+    public static String extractUserData(String email) throws SQLException, JSONException
     {
+        JSONObject emailObj = new JSONObject(email);
+
         String resultString = "";
+        ArrayList<HashMap<String, String>> emailableData = new ArrayList<HashMap<String, String>>();
 
         // Set username and password for MySQL
         Properties connectionProps = new Properties();
@@ -365,19 +369,21 @@ public class DatabaseExecuter
         Statement myStat = myConn.createStatement();
 
         // execute sql query
-        ResultSet myRs = myStat.executeQuery("select * from bookedInfo where email ="+email);
+        ResultSet myRs = myStat.executeQuery("select * from bookmarked_data where email =\""+emailObj.getString("email")+"\"");
 
         // process the result set and create JSON response
         while(myRs.next())
         {
-            resultString += "{\"title\":{"+myRs.getString("title")+
-                    "},\"summary\":{"+ myRs.getString("summary")+
-                    "},\"url\":{"+ myRs.getString("url")+
-                    "},\"tags\":{"+myRs.getString("tags")+
-                    "}}";
-
+            HashMap<String,String> singleResult = new HashMap<String, String>();
+            singleResult.put("title",myRs.getString("title"));
+            singleResult.put("summary",myRs.getString("summary"));
+            singleResult.put("url",myRs.getString("url"));
+            singleResult.put("tags",myRs.getString("tags"));
+            emailableData.add(singleResult);
         }
-        return resultString;
+        String emailSuccess = makeMail(emailObj.getString("email"),emailableData);
+        System.out.println(emailSuccess);
+        return emailSuccess;
     }
 
 }

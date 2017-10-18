@@ -12,15 +12,25 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/MultiPurposeServer$ServerRunner.coverage" NAME="ServerRunner Coverage Results" MODIFIED="1508253577694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/MultiPurposeServer$ServerRunner.coverage" NAME="ServerRunner Coverage Results" MODIFIED="1508300466142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="48" column="21" lean-forward="false" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ServerRunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ServerRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="137" column="90" lean-forward="false" selection-start-line="137" selection-start-column="90" selection-end-line="137" selection-end-column="90" />
+            <state relative-caret-position="161">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#ServerRunner#0;class#ServerRunner#0" expanded="false" />
@@ -31,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenerateResponse.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GenerateResponse.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/GenerateResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="151" column="34" lean-forward="false" selection-start-line="151" selection-start-column="34" selection-end-line="151" selection-end-column="34" />
+            <state relative-caret-position="246">
+              <caret line="150" column="41" lean-forward="false" selection-start-line="150" selection-start-column="41" selection-end-line="150" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,61 +56,27 @@
       <file leaf-file-name="DatabaseExecuter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/DatabaseExecuter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-748">
-              <caret line="46" column="79" lean-forward="false" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="79" />
+            <state relative-caret-position="229">
+              <caret line="377" column="35" lean-forward="false" selection-start-line="377" selection-start-column="30" selection-end-line="377" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;method#createUser#0;class#DatabaseExecuter#0" expanded="false" />
-                <element signature="method#createUser#0;class#DatabaseExecuter#0" expanded="false" />
-                <element signature="docComment;method#deleteUser#0;class#DatabaseExecuter#0" expanded="false" />
-                <element signature="method#deleteUser#0;class#DatabaseExecuter#0" expanded="false" />
-                <element signature="docComment;method#existsUser#0;class#DatabaseExecuter#0" expanded="false" />
-                <element signature="method#existsUser#0;class#DatabaseExecuter#0" expanded="false" />
-                <element signature="docComment;method#extractUser#0;class#DatabaseExecuter#0" expanded="false" />
-                <element signature="method#extractUser#0;class#DatabaseExecuter#0" expanded="false" />
-                <element signature="e#8160#8168#0" expanded="true" />
-                <element signature="method#extractUserData#0;class#DatabaseExecuter#0" expanded="false" />
+                <element signature="e#8169#8177#0" expanded="true" />
+                <element signature="e#11968#11993#0" expanded="true" />
+                <element signature="e#12751#12767#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="SendEmail.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/SendEmail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="42" column="39" lean-forward="false" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerRunnerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ServerRunnerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="138" column="4" lean-forward="false" selection-start-line="138" selection-start-column="4" selection-end-line="138" selection-end-column="4" />
+            <state relative-caret-position="315">
+              <caret line="59" column="39" lean-forward="false" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#setUp#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#tearDown#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="docComment;method#ignore_test_sendName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#ignore_test_sendName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="docComment;method#ignore_test_sendMultipleName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#ignore_test_sendMultipleName_GetHelloName#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="docComment;method#ignore_test_addUser#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#ignore_test_addUser#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#test_existsUser#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="docComment;method#ignore_test_deleteUser#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#ignore_test_deleteUser#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="docComment;method#stest_sampleDatabaseCall#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#stest_sampleDatabaseCall#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="docComment;method#sendRequest#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#sendRequest#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="docComment;method#sendRequest_getResponse#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="method#sendRequest_getResponse#0;class#ServerRunnerTest#0" expanded="false" />
-                <element signature="class#MultipleClientTester#0;class#ServerRunnerTest#0" expanded="false" />
+                <element signature="e#1072#1355#0" expanded="true" />
+                <element signature="e#1354#1355#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,12 +111,17 @@
       <find>sendRequest_getResponse</find>
       <find>datasource</find>
       <find>3306</find>
-      <find>addData</find>
       <find>creating so</find>
       <find>existsUser</find>
       <find>Json</find>
       <find>JSON</find>
       <find>generate</find>
+      <find>emailda</find>
+      <find>addData</find>
+      <find>emailR</find>
+      <find>trans</find>
+      <find>transport</find>
+      <find>extractUserData</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -158,10 +139,13 @@
         <option value="$PROJECT_DIR$/src/main/java/SampleClient.java" />
         <option value="$PROJECT_DIR$/src/test/java/SampleTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ServerRunnerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServerRunner.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Utilities/DatabaseExecuter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ServerRunner.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utilities/GenerateResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utilities/PrivateInformation.java" />
+        <option value="$PROJECT_DIR$/../../javamail-1.4.5/mail.jar!/javax/mail/Service.class" />
+        <option value="$PROJECT_DIR$/src/main/java/Utilities/SendEmail.java" />
       </list>
     </option>
   </component>
@@ -279,7 +263,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../json-20080701.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../javamail-1.4.5" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -563,14 +547,14 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17609255" sideWeight="0.49288255" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13624679" sideWeight="0.49288255" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.243607" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17609255" sideWeight="0.50711745" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13624679" sideWeight="0.50711745" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15681234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.155527" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -590,7 +574,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -631,7 +615,7 @@
         <state relative-caret-position="748">
           <caret line="138" column="4" lean-forward="false" selection-start-line="138" selection-start-column="4" selection-end-line="138" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#ServerRunnerTest#0" expanded="false" />
             <element signature="method#setUp#0;class#ServerRunnerTest#0" expanded="false" />
             <element signature="method#tearDown#0;class#ServerRunnerTest#0" expanded="false" />
@@ -661,16 +645,9 @@
           <caret line="299" column="12" lean-forward="false" selection-start-line="299" selection-start-column="12" selection-end-line="299" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;method#createUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="method#createUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="docComment;method#deleteUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="method#deleteUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="docComment;method#existsUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="method#existsUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="docComment;method#extractUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="method#extractUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="e#8160#8168#0" expanded="true" />
-            <element signature="method#extractUserData#0;class#DatabaseExecuter#0" expanded="false" />
+            <element signature="e#8169#8177#0" expanded="true" />
+            <element signature="e#11968#11993#0" expanded="true" />
+            <element signature="e#12751#12767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -713,12 +690,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#ServerRunner#0;class#ServerRunner#0" expanded="false" />
+            <element signature="docComment;method#killServer#0;class#ServerRunner#0" expanded="false" />
+            <element signature="docComment;method#startServer#0;class#ServerRunner#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ServerRunnerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="138" column="4" lean-forward="false" selection-start-line="138" selection-start-column="4" selection-end-line="138" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#ServerRunnerTest#0" expanded="false" />
             <element signature="method#setUp#0;class#ServerRunnerTest#0" expanded="false" />
             <element signature="method#tearDown#0;class#ServerRunnerTest#0" expanded="false" />
@@ -742,53 +732,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/DatabaseExecuter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-748">
-          <caret line="46" column="79" lean-forward="false" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#createUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="method#createUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="docComment;method#deleteUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="method#deleteUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="docComment;method#existsUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="method#existsUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="docComment;method#extractUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="method#extractUser#0;class#DatabaseExecuter#0" expanded="false" />
-            <element signature="e#8160#8168#0" expanded="true" />
-            <element signature="method#extractUserData#0;class#DatabaseExecuter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="42" column="39" lean-forward="false" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+        <state relative-caret-position="358">
+          <caret line="48" column="21" lean-forward="false" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServerRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="137" column="90" lean-forward="false" selection-start-line="137" selection-start-column="90" selection-end-line="137" selection-end-column="90" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#ServerRunner#0;class#ServerRunner#0" expanded="false" />
-            <element signature="docComment;method#killServer#0;class#ServerRunner#0" expanded="false" />
-            <element signature="docComment;method#startServer#0;class#ServerRunner#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/GenerateResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="151" column="34" lean-forward="false" selection-start-line="151" selection-start-column="34" selection-end-line="151" selection-end-column="34" />
+        <state relative-caret-position="246">
+          <caret line="150" column="41" lean-forward="false" selection-start-line="150" selection-start-column="41" selection-end-line="150" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../javamail-1.4.5/mail.jar!/javax/mail/Service.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2866">
+          <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/DatabaseExecuter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="377" column="35" lean-forward="false" selection-start-line="377" selection-start-column="30" selection-end-line="377" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8169#8177#0" expanded="true" />
+            <element signature="e#11968#11993#0" expanded="true" />
+            <element signature="e#12751#12767#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/PrivateInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="31" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utilities/SendEmail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="59" column="39" lean-forward="false" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1072#1355#0" expanded="true" />
+            <element signature="e#1354#1355#0" expanded="true" />
           </folding>
         </state>
       </provider>
