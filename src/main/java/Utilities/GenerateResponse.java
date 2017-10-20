@@ -140,12 +140,11 @@ public class GenerateResponse
                 String success = DatabaseExecuter.extractUserData(removeASCII.trim());
                 if(success.equals("success"))
                 {
-
                     String responseString =
                             "HTTP/1.1 200 OK\n"+
                                     "Date: "+currentDate+"\n"+
                                     "Server: "+"Gary's Custom Server"+"\n"+
-                                    "Content-Length: 44"+"\n"+
+                                    "Content-Length: 43"+"\n"+
                                     "Connection: close"+"\n"+
                                     "Content-Type: text/html"+"\n"+
                                     "\n"+
@@ -157,7 +156,7 @@ public class GenerateResponse
                         "HTTP/1.1 403 Forbidden\n"+
                                 "Date: "+currentDate+"\n"+
                                 "Server: "+"Gary's Custom Server"+"\n"+
-                                "Content-Length: 44"+"\n"+
+                                "Content-Length: 45"+"\n"+
                                 "Connection: close"+"\n"+
                                 "Content-Type: text/html"+"\n"+
                                 "\n"+
