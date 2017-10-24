@@ -18,6 +18,12 @@ Click the Forwarding and POP/IMAP tab.
 In the "POP Download" section, select Enable POP for all mail or Enable POP for mail that arrives from now on.
 At the bottom of the page, click Save Changes.
 
+## BookMeNow Database
+The database used in MySQL. You must first setup the test.sql script to create the relevant tables.
+
+      mysql> source \~\createBookMeNowDatabase.sql;
+
+where ~ is the path where you saved the test script is the script used to create the tables
 
 ## Locate
 Currently Under Development
